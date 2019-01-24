@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% load humanize%}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{{% block content %}
+              <!-- ##### Listing Content Wrapper Area Start ##### -->
+              <section class="listings-content-wrapper section-padding-100">
+              <div class="container">
+              <div class="row">
+              <div class="col-12">
+              <div class="listings-top-meta d-flex justify-content-between mb-100">
+                  <div class="view-area d-flex align-items-center">
+                      <span>View as:</span>
+                      <div class="grid_view ml-15"><a href="#" class="active"><i class="fa fa-th" aria-hidden="true"></i></a></div>
+                      <div class="list_view ml-15"><a href="#"><i class="fa fa-th-list" aria-hidden="true"></i></a></div>
+                  </div>
+                  <div class="order-by-area d-flex align-items-center">
+                      <span class="mr-15">Order by:</span>
+                      <select>
+                        <option selected>Default</option>
+                        <option value="1">Newest</option>
+                        <option value="2">Sales</option>
+                        <option value="3">Ratings</option>
+                        <option value="3">Popularity</option>
+                      </select>
+                  </div>
+              </div>
+              </div>
+              </div>
+
+              {% if listings %}
+              {% for listing in listings %}
+
+              {% if forloop.counter0|divisibleby:3 %}<div class="row">{% endif %}
+
+              <!-- Single Featured Property -->
+
+                <div class="col-x-6 col-md-4">
+                  <div class="single-featured-property mb-50">
+                  <!-- Property Thumbnail -->
+                  <div class="property-thumb">
+                      <img src="{{listing.photo_main.url}}" alt="">
+                      <div class="tag">
+                        <span>For Sale</span>
+                      </div>
+                      <div class="list-price">
+                          <p>₹{{listing.price | intcomma}}</p>
+                      </div>
+                  </div>
+                  <!-- Property Content -->
+                  <div class="property-content">
+                      <a href="{% url 'listing' listing.id %}">
+                        <h5>{{listing.title}}</h5>
+                      </a>
+                      <p class="location"><img src="{% static 'img/icons/location.png'%}" alt="">{{listing.adderss}}</p>
+                      {# <p>{{listing.description}}</p> #}
+                      <div class="property-meta-data d-flex align-items-end justify-content-between">
+                          <div class="new-tag">
+                              <img src="{% static 'img/icons/new.png'%}" alt="">
+                          </div>
+                          <div class="bathroom">
+                              <img src="{% static 'img/icons/bathtub.png'%}" alt="">
+                              <span>{{listing.bathrooms}}</span>
+                          </div>
+                          <div class="garage">
+
+                              {# <img src="{% static 'img/icons/garage.png'%}" alt=""> #}
+                              <span>{{listing.garage}}</span>
+                          </div>
+                          <div class="space">
+                              <img src="{% static 'img/icons/space.png'%}" alt="">
+                              <span>{{listing.sqft}} sq ft</span>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              </div>
+              {% endfor %}
+              </div>
+
+              {% endif %}
+
+                <div class="row">
+                  <div class="col-12">
+                      <div class="south-pagination d-flex justify-content-end">
+                          <nav aria-label="Page navigation">
+                            {% if listings.has_other_pages %}
+                              <ul class="pagination">
+                                {% if listings.has_previous %}
+                                  <li class="page-item"><a class="page-link" href="?page={{listings.previous_page_number}}">&laquo;</a></li>
+                                {% else %}
+                                  <li class="page-item"><a class="page-link disabled">&laquo;</a></li>
+                                {% endif %}
+                                {% for i in listings.paginator.page_range %}
+                                  {% if listings.number == i %}
+                                        <li class="page-item"><a class="page-link active" >{{i}}</a></li>
+                                  {% else %}
+                                        <li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+                                  {% endif %}
+                                {% endfor %}
+                                {% if listings.has_next %}
+                                  <li class="page-item"><a class="page-link" href="?page={{listings.next_page_number}}">&raquo;</a></li>
+                                {% else %}
+                                  <li class="page-item"><a class="page-link disabled">&raquo;</a></li>
+                                {% endif %}
+
+                                  {# <li class="page-item"><a class="page-link active" href="#">01</a></li> #}
+                                  {# <li class="page-item"><a class="page-link" href="#">02</a></li> #}
+                                  {# <li class="page-item"><a class="page-link" href="#">03</a></li> #}
+                              </ul>
+                            {% endif %}
+                          </nav>
+                      </div>
+                  </div>
+              </div>
+              </div>
+              </section>
+              <!-- ##### Listing Content Wrapper Area End ##### -->
+{% endblock %}}
