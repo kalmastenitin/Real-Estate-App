@@ -23,6 +23,12 @@ price_choices = {
 '1000000':'₹1M+',
 }
 
+top_cities = {
+'MU':'Mumbai',
+'DL':'Delhi',
+
+}
+
 state_choices = {
 'AP':'Andhra Pradesh',
 'AR':'Arunachal Pradesh',
