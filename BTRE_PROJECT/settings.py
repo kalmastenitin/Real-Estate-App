@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'pages',
     'realtors',
     'listings',
-    'django.contrib.humanize'
+    'django.contrib.humanize',
+    'accounts',
 ]
 
 MIDDLEWARE = [
