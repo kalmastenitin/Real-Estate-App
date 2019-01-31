@@ -15,7 +15,7 @@
                                     <p>Search for your home</p>
                                 </div>
                                 <!-- Search Form -->
-                                <form action="#" method="post" id="advanceSearch">
+                                <form action="{% url 'search' %}" method="post" id="advanceSearch">
                                   {% csrf_token %}
                                     <div class="row">
 
@@ -60,7 +60,7 @@
                                                     <option>10% OFF</option>
                                                 </select>
                                             </div>
-                                        </div>                              
+                                        </div>
 
                                         <div class="col-12 col-md-4 col-xl-2">
                                             <div class="form-group">

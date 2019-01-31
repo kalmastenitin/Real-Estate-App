@@ -35,21 +35,21 @@
                                                   <li><a href="{% url 'listing' %">Single Listings</a></li>
                                               </ul>
                                           </li>
-                                          <li><a href="#">Blog</a>
-                                              <ul class="dropdown">
-                                                  <li><a href="blog.html">Blog</a></li>
-                                                  <li><a href="single-blog.html">Single Blog</a></li>
-                                              </ul>
-                                          </li>
-                                          <li><a href="contact.html">Contact</a></li>
-                                          <li><a href="elements.html">Elements</a></li>
+                                          {# <li><a href="#">Blog</a> #}
+                                              {# <ul class="dropdown"> #}
+                                                  {# <li><a href="blog.html">Blog</a></li> #}
+                                                  {# <li><a href="single-blog.html">Single Blog</a></li> #}
+                                              {# </ul> #}
+                                          {# </li>  #}
+                                          <li><a href="{% url 'contact' %}">Contact</a></li>
+                                          {# <li><a href="elements.html">Elements</a></li> #}
                                       </ul>
                                   </li>
                                   <li><a href="{% url 'about' %}">About Us</a></li>
                                   <li><a href="{% url 'listings' %}">Properties</a></li>
-                                  <li><a href="blog.html">Blog</a></li>
-                                  <li><a href="contact.html">Contact</a></li>
-                                  <li><a href="{% url 'login' %}">Login</a></li>                                  
+                                  {# <li><a href="blog.html">Blog</a></li> #}
+                                  <li><a href="{% url 'contact' %}">Contact</a></li>
+                                  <li><a href="{% url 'login' %}">Login</a></li>
                               </ul>
 
                               <!-- Search Form -->

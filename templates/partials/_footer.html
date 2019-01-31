@@ -40,9 +40,9 @@
                     </div>
                     <!-- Address -->
                     <div class="address">
-                        <h6><img src="{% static 'img/icons/phone-call.png' %}" alt=""> +45 677 8993000 223</h6>
-                        <h6><img src="{% static 'img/icons/envelope.png' %}" alt=""> office@template.com</h6>
-                        <h6><img src="{% static 'img/icons/location.png' %}" alt=""> Main Str. no 45-46, b3, 56832, Los Angeles, CA</h6>
+                        <h6><img src="{% static 'img/icons/phone-call.png' %}" alt="">+91 258 254 2548</h6>
+                        <h6><img src="{% static 'img/icons/envelope.png' %}" alt=""> support@creaturenuts.com</h6>
+                        <h6><img src="{% static 'img/icons/location.png' %}" alt=""> 3, Tara niwas, Jamil Nager Bhandup, Mumbai, Maharashtra 400078</h6>
                     </div>
                 </div>
             </div>
@@ -59,14 +59,14 @@
                         <li><a href="{% url 'index' %}">Home</a></li>
                         <li><a href="{% url 'about' %}">About us</a></li>
                         <li><a href="#">Services</a></li>
-                        <li><a href="#">Properties</a></li>
+                        {# <li><a href="#">Properties</a></li> #}
                         <li><a href="{% url 'listings' %}">Listings</a></li>
                         <li><a href="#">Testimonials</a></li>
-                        <li><a href="#">Properties</a></li>
+                        <li><a href="{% url 'listings'%}">Properties</a></li>
                         <li><a href="#">Blog</a></li>
                         <li><a href="#">Testimonials</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Elements</a></li>
+                        <li><a href="{% url 'contact' %}">Contact</a></li>
+                        {# <li><a href="#">Elements</a></li> #}
                         <li><a href="#">FAQ</a></li>
                     </ul>
                 </div>
